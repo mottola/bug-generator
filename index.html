@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Battle Bugs</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <form>
+        <div id="petInfo"></div>
+        Choose a name for your bug:
+        <br>
+        <input type='text' id='newBugName' placeholder='Name your bug!'>
+        <br>
+        <br>
+
+        <div>
+            Choose an element type for your bug:
+            <br>
+            <label class="radio-inline" id='newBugType'>
+                <input type="radio" name='newBugType'>Fire</label>
+            <label class="radio-inline">
+                <input type="radio" name=newBugType>Water</label>
+            <label class="radio-inline">
+                <input type="radio" name='newBugType'>Lightning</label>
+            <label class="radio-inline">
+                <input type="radio" name='newBugType'>Wind</label>
+            <label class="radio-inline">
+                <input type="radio" name='newBugType'>Earth</label>
+            <br>
+            <br>
+        </div>
+        <div>
+            Choose an elemental weakness for your bug:
+            <br>
+            <label class="radio-inline" id='newBugWeakness'>
+                <input type="radio" name="newBugWeakness">Earth</label>
+            <label class="radio-inline">
+                <input type="radio" name="newBugWeakness">Wind</label>
+            <label class="radio-inline">
+                <input type="radio" name="newBugWeakness">Lightning</label>
+            <label class="radio-inline">
+                <input type="radio" name="newBugWeakness">Water</label>
+            <label class="radio-inline">
+                <input type="radio" name="newBugWeakness">Fire</label>
+            <br>
+            <br>
+        </div>
+        <div>
+            What would you like to name your pet's special ability?
+            <br>
+            <input type='text' id='newBugAbility' placeholder='Spell name'>
+            <br>
+            <br>
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary btn-lg" id='newBug'>Create Bug!</button>
+
+        </div>
+    </form>
+    <script>
+        function Bug(name, type, ability, weakness) {
+            this.name = name;
+            this.type = type;
+            this.ability = ability;
+            this.weakness = weakness;
+        }
+        // Put shared methods in a prototype to increase efficiency, as each instance does not need its own methods (which can use quite a bit of memory in large programs) \\
+        Bug.prototype = {
+            constructor: Bug, // Makes sure the prototype points to Bug and not Object \\
+
+            displayInfo: function () {
+                console.log(this.name + ' is a ' + this.type + ' type bug.');
+                console.log(this.name + ' can cast ' + this.ability + ' as its special ability!!');
+                console.log(this.name + ' is weak against ' + this.weakness + ' attacks.\n\n');
+            },
+
+            createBug: function () {
+
+            }
+        }
+
+        var fireBug = new Bug('Firebug', 'fire', 'scorch', 'water');
+        var waterBug = new Bug('Aquabug', 'water', 'tsunami', 'lightning');
+        var lightningBug = new Bug('Thunderbug', 'lightning', 'flashbolt', 'wind');
+        var windBug = new Bug('Breezebug', 'wind', 'cyclone', 'earth');
+        var earthBug = new Bug('Boulderbug', 'earth', 'quake', 'water');
+
+        fireBug.displayInfo();
+
+        waterBug.displayInfo();
+
+        lightningBug.displayInfo();
+
+        windBug.displayInfo();
+
+        earthBug.displayInfo();
+    </script>
+</body>
+
+</html>
