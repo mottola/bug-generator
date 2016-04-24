@@ -102,7 +102,6 @@
                 </div>
                 <div id='submitButton'>
                     <button type="button" class="btn btn-primary btn-lg" id='newBug' onclick="createBug()">Create Bug!</button>
-
                 </div>
             </form>
         </div>
@@ -127,42 +126,50 @@
         }
         // Put shared methods in a prototype to increase efficiency, as each instance does not need its own methods (which can use quite a bit of memory in large programs) \\
         Bug.prototype = {
-            constructor: Bug, // Makes sure the prototype points to Bug and not Object \\
+                constructor: Bug, // Makes sure the prototype points to Bug and not Object \\
 
-            createBug: function (name, type, ability, weakness) {
+                createBug: function (name, type, ability, weakness) {
 
-                this.newBugName = new Bug(name);
-                this.newBugType = new Bug(type);
-                this.newBugAbility = new Bug(ability);
-                this.newBugWeakness = new Bug(weakness);
+                    this.newBugName = new Bug(name);
+                    this.newBugType = new Bug(type);
+                    this.newBugAbility = new Bug(ability);
+                    this.newBugWeakness = new Bug(weakness);
 
-                document.getElementById('newBug').submit();
+                    this.form = document.getElementById('newBug');
 
-            },
+                    document.getElementById('submitButton').addEventListener('click', function () {
+                            form.submit();
+                        }),
+                        console.log("Clicked!");
 
-            displayInfo: function () {
-                console.log(this.name + ' is a ' + this.type + ' type bug.');
-                console.log(this.name + ' can cast ' + this.ability + ' as its special ability!!');
-                console.log(this.name + ' is weak against ' + this.weakness + ' attacks.\n\n');
-            },
+                    //                var form = document.getElementById("form-id");
+                    //
+                    //                document.getElementById("your-id").addEventListener("click", function () {
+                    //                    form.submit();
+                },
 
-        }
+                displayInfo: function () {
+                    console.log(this.name + ' is a ' + this.type + ' type bug.');
+                    console.log(this.name + ' can cast ' + this.ability + ' as its special ability!!');
+                    console.log(this.name + ' is weak against ' + this.weakness + ' attacks.\n\n');
+                };
 
-        var fireBug = new Bug('Firebug', 'fire', 'scorch', 'water');
-        var waterBug = new Bug('Aquabug', 'water', 'tsunami', 'lightning');
-        var lightningBug = new Bug('Thunderbug', 'lightning', 'flashbolt', 'wind');
-        var windBug = new Bug('Breezebug', 'wind', 'cyclone', 'earth');
-        var earthBug = new Bug('Boulderbug', 'earth', 'quake', 'water');
 
-        fireBug.displayInfo();
+                var fireBug = new Bug('Firebug', 'fire', 'scorch', 'water');
+                var waterBug = new Bug('Aquabug', 'water', 'tsunami', 'lightning');
+                var lightningBug = new Bug('Thunderbug', 'lightning', 'flashbolt', 'wind');
+                var windBug = new Bug('Breezebug', 'wind', 'cyclone', 'earth');
+                var earthBug = new Bug('Boulderbug', 'earth', 'quake', 'water');
 
-        waterBug.displayInfo();
+                fireBug.displayInfo();
 
-        lightningBug.displayInfo();
+                waterBug.displayInfo();
 
-        windBug.displayInfo();
+                lightningBug.displayInfo();
 
-        earthBug.displayInfo();
+                windBug.displayInfo();
+
+                earthBug.displayInfo();
     </script>
 </body>
 
