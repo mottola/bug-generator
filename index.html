@@ -4,50 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <title>Battle Bugs</title>
-
     <style>
-        @import url(https://fonts.googleapis.com/css?family=Dhurjati);
-        #newBug {
-            text-align: center;
-        }
-        
-        h5 {
-            font-family: 'Dhurjati', sans-serif !important;
-            font-size: 24px !important;
-            margin: 0 !important;
-            font-weight: 200 !important;
-        }
-        
-        #newBug {
-            background-image: linear-gradient(to bottom, #eeeeee 0, #f4d2fe 100%) !important;
-            border-color: none;
-        }
-        
-        #newBug.btn-primary {
-            background-image: linear-gradient(to bottom, #eeeeee 0, #f4d2fe 100%) !important;
-            border-color: white !important;
-            background-color: #f4d2fe !important;
-            color: #b845d9 !important;
-            font-family: 'Dhurjati', sans-serif !important;
-            font-size: 24px;
-        }
-        
-        .jumbotron {
-            background-image: linear-gradient(to bottom, #eeeeee 0, #f4d2fe 100%) !important;
-        }
+    @import url(https://fonts.googleapis.com/css?family=Dhurjati);
+    #newBug {
+        text-align: center;
+    }
+    
+    h5 {
+        font-family: 'Dhurjati', sans-serif !important;
+        font-size: 24px !important;
+        margin: 0 !important;
+        font-weight: 200 !important;
+    }
+    
+    #newBug {
+        background-image: linear-gradient(to bottom, #eeeeee 0, #f4d2fe 100%) !important;
+        border-color: none;
+    }
+    
+    #newBug.btn-primary {
+        background-image: linear-gradient(to bottom, #eeeeee 0, #f4d2fe 100%) !important;
+        border-color: white !important;
+        - background-color: #f4d2fe !important;
+        color: #b845d9 !important;
+        font-family: 'Dhurjati', sans-serif !important;
+        font-size: 24px;
+    }
+    
+    .jumbotron {
+        background-image: linear-gradient(to bottom, #eeeeee 0, #f4d2fe 100%) !important;
+    }
     </style>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous">
     </script>
-
 </head>
 
 <body>
@@ -60,7 +55,6 @@
                 <input type='text' id='newBugName' placeholder='Name your bug!'>
                 <br>
                 <br>
-
                 <div>
                     <h5>Choose an element type for your bug:</h5>
                     <br>
@@ -101,75 +95,69 @@
                     <br>
                 </div>
                 <div id='submitButton'>
-                    <button type="button" class="btn btn-primary btn-lg" id='newBug' onclick="createBug()">Create Bug!</button>
+                    <button type="button" class="btn btn-primary btn-lg" id='newBug'>Create Bug!</button>
                 </div>
             </form>
         </div>
     </div>
-
     <div class="container-fluid">
         <div class="row-fluid">
             <div class="span2">
                 Browse Battle Bugs!
             </div>
-            <div class="span10">
-                All Battle Bugs!
+            <div class="span10∏                All Battle Bugs!
             </div>
         </div>
     </div>
     <script>
-        function Bug(name, type, ability, weakness) {
-            this.name = name;
-            this.type = type;
-            this.ability = ability;
-            this.weakness = weakness;
-        }
-        // Put shared methods in a prototype to increase efficiency, as each instance does not need its own methods (which can use quite a bit of memory in large programs) \\
-        Bug.prototype = {
-                constructor: Bug, // Makes sure the prototype points to Bug and not Object \\
+    function Bug(name, type, ability, weakness) {
+        this.name = name;
+        this.type = type;
+        this.ability = ability;
+        this.weakness = weakness;
 
-                createBug: function (name, type, ability, weakness) {
+    };
+    // Put shared methods in a prototype to increase efficiency, as each instance does not need its own methods (which can use quite a bit of memory in large programs) \\
+    Bug.prototype = {
+        constructor: Bug, // Makes sure the prototype points to Bug and not Object \\
 
-                    this.newBugName = new Bug(name);
-                    this.newBugType = new Bug(type);
-                    this.newBugAbility = new Bug(ability);
-                    this.newBugWeakness = new Bug(weakness);
+        createBug: function(name, type, ability, weakness) {
 
-                    this.form = document.getElementById('newBug');
+            this.newBugName = new Bug(name);
+            this.newBugType = new Bug(type);
+            this.newBugAbility = new Bug(ability);
+            this.newBugWeakness = new Bug(weakness);
 
-                    document.getElementById('submitButton').addEventListener('click', function () {
-                            form.submit();
-                        }),
-                        console.log("Clicked!");
+            this.form = document.getElementById('newBug');
+            document.getElementById('newBug').addEventListener('click', this.createBug());
 
-                    //                var form = document.getElementById("form-id");
-                    //
-                    //                document.getElementById("your-id").addEventListener("click", function () {
-                    //                    form.submit();
-                },
+        },
 
-                displayInfo: function () {
-                    console.log(this.name + ' is a ' + this.type + ' type bug.');
-                    console.log(this.name + ' can cast ' + this.ability + ' as its special ability!!');
-                    console.log(this.name + ' is weak against ' + this.weakness + ' attacks.\n\n');
-                };
+        displayInfo: function() {
+            console.log(this.name + ' is a ' + this.type + ' type bug.');
+            console.log(this.name + ' can cast ' + this.ability + ' as its special ability!!');
+            console.log(this.name + ' is weak against ' + this.weakness + ' attacks.\n\n');
+        },
+
+    };
 
 
-                var fireBug = new Bug('Firebug', 'fire', 'scorch', 'water');
-                var waterBug = new Bug('Aquabug', 'water', 'tsunami', 'lightning');
-                var lightningBug = new Bug('Thunderbug', 'lightning', 'flashbolt', 'wind');
-                var windBug = new Bug('Breezebug', 'wind', 'cyclone', 'earth');
-                var earthBug = new Bug('Boulderbug', 'earth', 'quake', 'water');
+    var fireBug = new Bug('Firebug', 'fire', 'scorch', 'water');
+    var waterBug = new Bug('Aquabug', 'water', 'tsunami', 'lightning');
+    var lightningBug = new Bug('Thunderbug', 'lightning', 'flashbolt', 'wind');
+    var windBug = new Bug('Breezebug', 'wind', 'cyclone', 'earth');
+    var earthBug = new Bug('Boulderbug', 'earth', 'quake', 'water');
 
-                fireBug.displayInfo();
+    fireBug.displayInfo();
+    fireBug.createBug();
 
-                waterBug.displayInfo();
+    waterBug.displayInfo();
 
-                lightningBug.displayInfo();
+    lightningBug.displayInfo();
 
-                windBug.displayInfo();
+    windBug.displayInfo();
 
-                earthBug.displayInfo();
+    earthBug.displayInfo();
     </script>
 </body>
 
